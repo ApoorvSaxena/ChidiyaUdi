@@ -2,6 +2,109 @@ window.onload = function() {
   game.init();
 };
 
+
+
+// requestAnimationFrame() shim by Paul Irish
+// http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+window.requestAnimFrame = (function() {
+  return  window.requestAnimationFrame       ||
+      window.webkitRequestAnimationFrame ||
+      window.mozRequestAnimationFrame    ||
+      window.oRequestAnimationFrame      ||
+      window.msRequestAnimationFrame     ||
+      function(/* function */ callback, /* DOMElement */ element){
+        window.setTimeout(callback, 1000 / 60);
+      };
+})();
+
+/**
+ * Behaves the same as setInterval except uses requestAnimationFrame() where possible for better performance
+ * @param {function} fn The callback function
+ * @param {int} delay The delay in milliseconds
+ */
+window.requestInterval = function(fn, delay) {
+  if( !window.requestAnimationFrame       &&
+    !window.webkitRequestAnimationFrame &&
+    !(window.mozRequestAnimationFrame && window.mozCancelRequestAnimationFrame) && // Firefox 5 ships without cancel support
+    !window.oRequestAnimationFrame      &&
+    !window.msRequestAnimationFrame)
+      return window.setInterval(fn, delay);
+
+  var start = new Date().getTime(),
+    handle = new Object();
+
+  function loop() {
+    var current = new Date().getTime(),
+      delta = current - start;
+
+    if(delta >= delay) {
+      fn.call();
+      start = new Date().getTime();
+    }
+
+    handle.value = requestAnimFrame(loop);
+  };
+
+  handle.value = requestAnimFrame(loop);
+  return handle;
+}
+
+/**
+ * Behaves the same as clearInterval except uses cancelRequestAnimationFrame() where possible for better performance
+ * @param {int|object} fn The callback function
+ */
+    window.clearRequestInterval = function(handle) {
+    window.cancelAnimationFrame ? window.cancelAnimationFrame(handle.value) :
+    window.webkitCancelAnimationFrame ? window.webkitCancelAnimationFrame(handle.value) :
+    window.webkitCancelRequestAnimationFrame ? window.webkitCancelRequestAnimationFrame(handle.value) : /* Support for legacy API */
+    window.mozCancelRequestAnimationFrame ? window.mozCancelRequestAnimationFrame(handle.value) :
+    window.oCancelRequestAnimationFrame ? window.oCancelRequestAnimationFrame(handle.value) :
+    window.msCancelRequestAnimationFrame ? window.msCancelRequestAnimationFrame(handle.value) :
+    clearInterval(handle);
+};
+
+/**
+ * Behaves the same as setTimeout except uses requestAnimationFrame() where possible for better performance
+ * @param {function} fn The callback function
+ * @param {int} delay The delay in milliseconds
+ */
+
+window.requestTimeout = function(fn, delay) {
+  if( !window.requestAnimationFrame       &&
+    !window.webkitRequestAnimationFrame &&
+    !(window.mozRequestAnimationFrame && window.mozCancelRequestAnimationFrame) && // Firefox 5 ships without cancel support
+    !window.oRequestAnimationFrame      &&
+    !window.msRequestAnimationFrame)
+      return window.setTimeout(fn, delay);
+
+  var start = new Date().getTime(),
+    handle = new Object();
+
+  function loop(){
+    var current = new Date().getTime(),
+      delta = current - start;
+
+    delta >= delay ? fn.call() : handle.value = requestAnimFrame(loop);
+  };
+
+  handle.value = requestAnimFrame(loop);
+  return handle;
+};
+
+/**
+ * Behaves the same as clearTimeout except uses cancelRequestAnimationFrame() where possible for better performance
+ * @param {int|object} fn The callback function
+ */
+window.clearRequestTimeout = function(handle) {
+    window.cancelAnimationFrame ? window.cancelAnimationFrame(handle.value) :
+    window.webkitCancelAnimationFrame ? window.webkitCancelAnimationFrame(handle.value) :
+    window.webkitCancelRequestAnimationFrame ? window.webkitCancelRequestAnimationFrame(handle.value) : /* Support for legacy API */
+    window.mozCancelRequestAnimationFrame ? window.mozCancelRequestAnimationFrame(handle.value) :
+    window.oCancelRequestAnimationFrame ? window.oCancelRequestAnimationFrame(handle.value) :
+    window.msCancelRequestAnimationFrame ? window.msCancelRequestAnimationFrame(handle.value) :
+    clearTimeout(handle);
+};
+
 var utils = {
   random: function(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -86,7 +189,7 @@ var game = {
     var self = this,
         interval;
 
-    interval = setInterval(function() {
+    interval = requestInterval(function() {
       self.checkIfGameOver();
       callback();
     }, timerInterval);
@@ -94,7 +197,7 @@ var game = {
   },
   cancelTimers: function() {
     for(var index in this.intervals) {
-      clearInterval(this.intervals[index]);
+      clearRequestInterval(this.intervals[index]);
     }
   },
   updateFoodPos: function() {
@@ -123,7 +226,7 @@ var game = {
     $('.score').html(this.score);
   },
   isEaten: function(food) {
-    var rightMax = this.enums._window.width - this.getConfig().player.distFromLeft,
+    var rightMax = this.enums._window.width - this.getConfig().player.distFromLeft - parseInt(this.getConfig().player.size/2),
         rightMin = rightMax - this.getConfig().player.size,
         topMax = this.data.player.posY + this.getConfig().player.size,
         topMin = this.data.player.posY;
@@ -144,7 +247,7 @@ var game = {
     var $chicken = $('#chicken');
 
     $chicken.removeClass().addClass('chicken-move-1');
-    setTimeout(function() {
+    requestTimeout(function() {
       $chicken.removeClass().addClass('chicken-move-4');
     }, 300);
   },

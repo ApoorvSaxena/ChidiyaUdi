@@ -1,0 +1,194 @@
+html {
+  height: 100%;
+}
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #4C8EFA;
+  margin: 0;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.hide {
+  display: none;
+}
+
+.grass {
+  background: url('/assets/images/grass.png') 100px, url('/assets/images/grass.png');
+  height: 126px;
+  z-index: 1;
+  position: absolute;
+  bottom: 0px;
+  width: 150%;
+}
+
+.grass--animate {
+  -webkit-animation: movegrass 10s linear infinite;
+  -moz-animation: movegrass 10s linear infinite;
+  -o-animation: movegrass 10s linear infinite;
+}
+
+@-webkit-keyframes movegrass {
+  0% {margin-left: 0px;}
+  100% {margin-left: -150px;}
+}
+
+.clouds {
+  background: url('/assets/images/clouds.png');
+  height: 185px;
+}
+
+.cloud--animate {
+  -webkit-animation: moveclouds 35s linear infinite;
+  -moz-animation: moveclouds 35s linear infinite;
+  -o-animation: moveclouds 35s linear infinite;
+}
+
+@-webkit-keyframes moveclouds {
+  0% {margin-left: 0px;}
+  100% {margin-left: -492px;}
+}
+
+.game-over {
+  font-size: 100px;
+  width: 100%;
+  top: 40%;
+  text-align: center;
+  position: absolute;
+  text-shadow: 4px 4px 8px rgba(150, 150, 150, 1);
+}
+#chicken {
+  position: absolute;
+  top: 200px;
+  left: 10px;
+  z-index: 1;
+}
+.chicken-move-1 {
+  background: url('/assets/images/bird.png') no-repeat -23px -2px;
+  width: 81px;
+  height: 82px;
+}
+.chicken-move-2 {
+  background: url('/assets/images/bird.png') no-repeat -128px -4px;
+  width: 87px;
+  height: 79px;
+}
+.chicken-move-3 {
+  background: url('/assets/images/bird.png') no-repeat -242px -8px;
+  width: 81px;
+  height: 75px;
+}
+.chicken-move-4 {
+  background: url('/assets/images/bird.png') no-repeat -337px -11px;
+  width: 96px;
+  height: 70px;
+}
+.chicken-move-5 {
+  background: url('/assets/images/bird.png') no-repeat -440px -34px;
+    width: 105px;
+    height: 46px;
+}
+.chicken-move-6 {
+  background: url('/assets/images/bird.png') no-repeat -24px -135px;
+  width: 80px;
+  height: 65px;
+}
+.chicken-move-7 {
+  background: url('/assets/images/bird.png') no-repeat -140px -134px;
+  width: 73px;
+  height: 69px;
+}
+.chicken-move-8 {
+  background: url('/assets/images/bird.png') no-repeat -251px -135px;
+  width: 72px;
+  height: 64px;
+}
+.chicken-move-9 {
+  background: url('/assets/images/bird.png') no-repeat -359px -135px;
+  width: 73px;
+  height: 59px;
+}
+.chicken-move-10 {
+  background: url('/assets/images/bird.png') no-repeat -468px -137px;
+  width: 74px;
+  height: 59px;
+}
+.chicken-move-11 {
+  background: url('/assets/images/bird.png') no-repeat -32px -241px;
+  width: 72px;
+  height: 57px;
+}
+.chicken-move-12 {
+  background: url('/assets/images/bird.png') no-repeat -133px -242px;
+  width: 81px;
+  height: 56px;
+}
+.chicken-move-13 {
+  background: url('/assets/images/bird.png') no-repeat -228px -242px;
+  width: 97px;
+  height: 46px;
+}
+.chicken-move-14 {
+  background: url('/assets/images/bird.png') no-repeat -333px -224px;
+  width: 100px;
+  height: 64px;
+}
+.ground {
+  background-color: #C08632;
+  height: 40px;
+  bottom: 0px;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+.food {
+  height: 20px;
+  width: 20px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+}
+.score {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  position: absolute;
+  background-color: red;
+  top: 20px;
+  right: 20px;
+  text-align: center;
+  border-radius: 22%;
+  color: #fff;
+  font-size: 140%;
+}
+
+
+@media (max-width:499px){
+  #chicken {
+    transform: scale(0.5);
+  }
+
+  .score {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 90%;
+  }
+
+  .food {
+    height: 12px;
+    width: 12px;
+  }
+
+  .game-over {
+    font-size: 35px;
+  }
+}

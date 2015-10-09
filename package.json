@@ -1,0 +1,10 @@
+{
+  "name": "ChidiyaUdi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Apoorv Saxena",
+  "dependencies": {
+    "zepto": "0.0.4"
+  }
+}

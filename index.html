@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lappu</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <script type="text/javascript" src="node_modules/zepto/zepto.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+  </head>
+  <body>
+    <div class="score">0</div>
+    <audio autoplay loop>
+        <source src="assets/sounds/background-music.mp3" type="audio/mpeg" />
+    </audio>
+    <div class="game noselect">
+      <div class="clouds cloud--animate"></div>
+      <div id="chicken" class="chicken chicken-move-1">
+      </div>
+      <div class="ground"></div>
+      <div class="grass grass--animate"></div>
+    </div>
+    <div class="game-over hide">
+      <span>Game Over</span>
+      <a href="#" id="replay-link"></a>
+    </div>
+  </body>
+  <script type="text/javascript" src="assets/js/game.js"></script>
+</html>

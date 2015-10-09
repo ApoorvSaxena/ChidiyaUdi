@@ -4,10 +4,13 @@
     <title>ChidyaUdi</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <script type="text/javascript" src="node_modules/zepto/zepto.min.js"></script>
+    <script type="text/javascript" src="assets/js/utils.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
   </head>
   <body>
-    <div class="score">0</div>
+    <div class="score">
+      <span class="score-value">0</span>
+    </div>
     <audio autoplay loop>
         <source src="assets/sounds/background-music.mp3" type="audio/mpeg" />
     </audio>
@@ -18,9 +21,9 @@
       <div class="ground"></div>
       <div class="grass grass--animate"></div>
     </div>
-    <div class="game-over hide">
-      <span>Game Over</span>
-      <a href="#" id="replay-link"></a>
+    <div class="game-over">
+      <span>Game Over</span><br>
+      <span class="score-text">Your score is: <b class="score-value">0</b></span>
     </div>
   </body>
   <script type="text/javascript" src="assets/js/game.js"></script>

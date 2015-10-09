@@ -22,7 +22,7 @@ body {
 }
 
 .grass {
-  background: url('/assets/images/grass.png') 100px, url('/assets/images/grass.png');
+  background: url('../../assets/images/grass.png') 100px, url('../../assets/images/grass.png');
   height: 126px;
   z-index: 1;
   position: absolute;
@@ -42,7 +42,7 @@ body {
 }
 
 .clouds {
-  background: url('/assets/images/clouds.png');
+  background: url('../../assets/images/clouds.png');
   height: 185px;
 }
 
@@ -72,72 +72,72 @@ body {
   z-index: 1;
 }
 .chicken-move-1 {
-  background: url('/assets/images/bird.png') no-repeat -23px -2px;
+  background: url('../../assets/images/bird.png') no-repeat -23px -2px;
   width: 81px;
   height: 82px;
 }
 .chicken-move-2 {
-  background: url('/assets/images/bird.png') no-repeat -128px -4px;
+  background: url('../../assets/images/bird.png') no-repeat -128px -4px;
   width: 87px;
   height: 79px;
 }
 .chicken-move-3 {
-  background: url('/assets/images/bird.png') no-repeat -242px -8px;
+  background: url('../../assets/images/bird.png') no-repeat -242px -8px;
   width: 81px;
   height: 75px;
 }
 .chicken-move-4 {
-  background: url('/assets/images/bird.png') no-repeat -337px -11px;
+  background: url('../../assets/images/bird.png') no-repeat -337px -11px;
   width: 96px;
   height: 70px;
 }
 .chicken-move-5 {
-  background: url('/assets/images/bird.png') no-repeat -440px -34px;
+  background: url('../../assets/images/bird.png') no-repeat -440px -34px;
     width: 105px;
     height: 46px;
 }
 .chicken-move-6 {
-  background: url('/assets/images/bird.png') no-repeat -24px -135px;
+  background: url('../../assets/images/bird.png') no-repeat -24px -135px;
   width: 80px;
   height: 65px;
 }
 .chicken-move-7 {
-  background: url('/assets/images/bird.png') no-repeat -140px -134px;
+  background: url('../../assets/images/bird.png') no-repeat -140px -134px;
   width: 73px;
   height: 69px;
 }
 .chicken-move-8 {
-  background: url('/assets/images/bird.png') no-repeat -251px -135px;
+  background: url('../../assets/images/bird.png') no-repeat -251px -135px;
   width: 72px;
   height: 64px;
 }
 .chicken-move-9 {
-  background: url('/assets/images/bird.png') no-repeat -359px -135px;
+  background: url('../../assets/images/bird.png') no-repeat -359px -135px;
   width: 73px;
   height: 59px;
 }
 .chicken-move-10 {
-  background: url('/assets/images/bird.png') no-repeat -468px -137px;
+  background: url('../../assets/images/bird.png') no-repeat -468px -137px;
   width: 74px;
   height: 59px;
 }
 .chicken-move-11 {
-  background: url('/assets/images/bird.png') no-repeat -32px -241px;
+  background: url('../../assets/images/bird.png') no-repeat -32px -241px;
   width: 72px;
   height: 57px;
 }
 .chicken-move-12 {
-  background: url('/assets/images/bird.png') no-repeat -133px -242px;
+  background: url('../../assets/images/bird.png') no-repeat -133px -242px;
   width: 81px;
   height: 56px;
 }
 .chicken-move-13 {
-  background: url('/assets/images/bird.png') no-repeat -228px -242px;
+  background: url('../../assets/images/bird.png') no-repeat -228px -242px;
   width: 97px;
   height: 46px;
 }
 .chicken-move-14 {
-  background: url('/assets/images/bird.png') no-repeat -333px -224px;
+  background: url('../../assets/images/bird.png') no-repeat -333px -224px;
   width: 100px;
   height: 64px;
 }
